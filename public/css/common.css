@@ -1,0 +1,44 @@
+/* reset */
+ul, li {
+    list-style: none;
+}
+
+/* header */
+.header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.nav-setting {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 20px 20px 20px;
+}
+
+.nav-list {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    padding: 5px;
+    border: 1px solid #999;
+    border-radius: 2px;
+}
+
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a {
+    display: block;
+    font-size: 12px;
+    line-height: 22px;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-setting:hover ul.nav-list {
+    display: block;
+}
