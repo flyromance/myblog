@@ -1,6 +1,7 @@
 /* reset */
 ul, li {
     list-style: none;
+    padding: 0;
 }
 
 /* header */
@@ -22,13 +23,13 @@ ul, li {
     position: absolute;
     top: 25px;
     right: 0;
-    padding: 5px;
+    width: 70px;
     border: 1px solid #999;
     border-radius: 2px;
+    display: none;
 }
 
 .nav-list li {
-    float: left;
 }
 
 .nav-list li a {
@@ -37,8 +38,67 @@ ul, li {
     line-height: 22px;
     color: #000;
     text-decoration: none;
+    text-align: center;
+}
+
+.nav-list li a:hover {
+    background-color: #ddd;
 }
 
 .nav-setting:hover ul.nav-list {
     display: block;
+}
+
+/* body */
+.body {
+    width: 750px;
+    margin: 0 auto;
+}
+
+/* post */
+.post-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.post-main {
+    margin-left: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post-title {
+    margin: 0px 0px 15px 0px;
+}
+
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-extra {
+    position: relative;
+    color: #aaa;
+}
+
+.post-time {
+    margin-right: 100px;
+}
+
+.post-other {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.post-sub {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.post-avatar img {
+    width: 80px;
+    height: 80px;
 }
