@@ -4,7 +4,9 @@ var checkLogin = require('../middlewares/check').checkLogin;
 
 // 首页
 router.get('/', function (req, res) {
-    res.render('front/index');
+    res.render('front/index', {
+        title: '首页'
+    });
 });
 
 // 文章详情页
