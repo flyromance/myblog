@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 html(lang="en")
-head
-    meta(charset="UTF-8")
-    title #{blog}
-    link(rel="shortcut icon" href="http://s3.qhimg.com/static/c56696ff943031e3.ico" type="image/x-icon")
-    link(type="text/css" rel="stylesheet" href="/css/bootstrap.css")
-    script(src="/js/lib/jquery-1.11.3.js")
-    script(src="/js/lib/bootstrap.js")
-    block style
-    block head_script
-body
-    block header
-    block body
-    block footer
-    block body_script
-    
+    head
+        meta(charset="UTF-8")
+        title #{title}
+        link(rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico")
+        include lib_css.jade
+        include lib_js.jade
+        block head_style
+        block head_script
+    body
+        block header
+        block body
+        block footer
+        block body_script

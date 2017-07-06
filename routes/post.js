@@ -5,7 +5,7 @@ var checkLogin = require('../middlewares/check').checkLogin;
 // 首页
 router.get('/', function (req, res) {
     res.render('front/index', {
-        title: '首页'
+        title: '博客'
     });
 });
 
