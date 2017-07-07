@@ -4,12 +4,14 @@ html(lang="en")
         meta(charset="UTF-8")
         title #{title}
         link(rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico")
-        include lib_css.jade
-        include lib_js.jade
+        block head_common
+            include lib.jade
         block head_style
         block head_script
     body
         block header
+            include header.jade
         block body
         block footer
+            include footer.jade
         block body_script

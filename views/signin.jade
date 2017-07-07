@@ -1,12 +1,12 @@
 extends ./common/layout.jade
 
-block style
+block head_style
     link(type="text/css" rel="stylesheet" href="/css/login.css")
 
 block body
     div(class='login')
         h3(class='text-center text-primary') 登录
-        form(class='form-horizontal')
+        form(class='form-horizontal' action="/signin" method="POST")
             div(class='form-group')
                 label(for="username" class="col-sm-2 control-label") 用户名
                     span(class='text-red') *
@@ -20,4 +20,4 @@ block body
             div(class='row')
                 div(class="col-sm-2")
                 div(class='col-sm-10')
-                    button(class='btn btn-primary j-btn-signin') 登录
+                    button(class='btn btn-primary j-btn-signin' type="submit") 登录

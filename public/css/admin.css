@@ -1,0 +1,18 @@
+.admin-wrap {
+    width: 100%;
+    position: relative;
+}
+
+.left-wrap {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    top: 0;
+}
+
+.main-wrap {
+    margin-left: 300px;
+}
+
+
+
