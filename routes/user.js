@@ -5,12 +5,9 @@ var checkLogin = require('../middlewares/check').checkLogin;
 // 用户
 router.get('/', checkLogin, function (req, res) {
     // 404
-});
-
-// 文章列表
-router.get('/posts', checkLogin, function (req, res) {
-   // 取出数据
-   // res.render('user', {}); 
+    res.render('admin/user', {
+        
+    });
 });
 
 // 文章列表

@@ -16,6 +16,22 @@ router.get('/:id', function (req, res) {
     });
 });
 
+// 文章新建
+router.get('/create', checkLogin, function(req, res) {
+    res.render('front/edit', {
+
+    });
+});
+
+// 文章编辑
+router.get('/edit/:id', checkLogin, function(req, res) {
+    // 取数据
+
+    res.render('front/edit', {
+
+    })
+});
+
 // 创建留言
 router.post('/:postid/comment', checkLogin, function () {
 

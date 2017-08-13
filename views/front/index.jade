@@ -1,8 +1,5 @@
 extends common/layout.jade
 
-block head_style
-    link(type='text/css' rel='stylesheet' href='/css/common.css')
-
 block header
     div(class='header')
         h2(class='text-center') myblog
@@ -22,29 +19,47 @@ block header
 
 block body
     div(class='body')
-        div(class='content')
-            div(class="post-list")
-                div(class='post-item')
-                    div(class='post-main')
-                        h3(class='post-title') hello world
-                        p(class='post-content') 这是正文, 这是正文
-                        div(class='post-extra')
-                            div(class='post-time') 2012-10-23
-                            div(class='post-other')    
-                                span(class='post-read-num') 浏览(4)
-                                span(class='post-comment-num') 留言(1)
-                    div(class='post-sub')
-                        div(class='post-avatar')
-                            img(src='/img/avatar.jpg' width='100px' height='100px')
-                div(class='post-item')
-                    div(class='post-main')
-                        h3(class='post-title') hello world
-                        p(class='post-content') 这是正文, 这是正文
-                        div(class='post-extra')
-                            div(class='post-time') 2012-10-23
-                            div(class='post-other')    
-                                span(class='post-read-num') 浏览(4)
-                                span(class='post-comment-num') 留言(1)
-                    div(class='post-sub')
-                        div(class='post-avatar')
-                            img(src='/img/avatar.jpg' width='100px' height='100px')
+        div(class='layout clearfix')
+            div(class='col-main')
+                div(class='col-main-wraper')
+                    div(class="post-list")
+                        div(class='post-item')
+                            div(class='post-main')
+                                h3(class='post-title') hello world
+                                p(class='post-content') 这是正文, 这是正文
+                                div(class='post-extra')
+                                    div(class='post-time') 2012-10-23
+                                    div(class='post-other')    
+                                        span(class='post-read-num') 浏览(4)
+                                        span(class='post-comment-num') 留言(1)
+                            div(class='post-sub')
+                                div(class='post-avatar')
+                                    img(src='/img/avatar.jpg' width='100px' height='100px')
+                        div(class='post-item')
+                            div(class='post-main')
+                                h3(class='post-title') hello world
+                                p(class='post-content') 这是正文, 这是正文
+                                div(class='post-extra')
+                                    div(class='post-time') 2012-10-23
+                                    div(class='post-other')    
+                                        span(class='post-read-num') 浏览(4)
+                                        span(class='post-comment-num') 留言(1)
+                            div(class='post-sub')
+                                div(class='post-avatar')
+                                    img(src='/img/avatar.jpg' width='100px' height='100px')
+            div(class='col-sub')
+                div(class='sub-module module-recommend')
+                    div(class='module-title')
+                        span 推荐作者
+                    div(class='module-body')
+                        div(class='list')
+                            div(class='list-item')
+                                div(class='item-left')
+                                div(class='item-main')
+                                    div(class='item-title') 范龙
+                                    div(class='item-sub') 这是范龙，超级无敌
+                                div(class='item-reload') 换一换
+                                
+                
+
+        

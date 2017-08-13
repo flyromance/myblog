@@ -14,7 +14,7 @@ module.exports = function (app) {
     // 用户
     app.use('/record', require('./record'));
 
-    // 已登录的用户
+    // 用户后台
     app.use('/user', require('./user'));
 
     // 系统后台管理

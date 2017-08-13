@@ -1,3 +1,38 @@
+/* lib */
+.clearfix:after {
+    clear: both;
+    content: ' ';
+    display: table;
+}
+
+/* layout  */
+.layout {
+    width: 100%;
+}
+
+.layout > .col-main, .layout > .col-sub {
+    float: left;
+}
+
+.layout > .col-main {
+    width: 100%;
+}
+
+.layout > .col-main > .col-main-wraper {
+    margin-right: 320px;
+}
+
+.layout > .col-sub {
+    margin-left: -300px;
+    width: 300px;
+}
+
+/* body */
+.body {
+    width: 1020px;
+    margin: 0 auto;
+}
+
 /* header */
 .header {
     margin-bottom: 30px;
@@ -43,11 +78,6 @@
     display: block;
 }
 
-/* body */
-.body {
-    width: 750px;
-    margin: 0 auto;
-}
 
 /* post */
 .post-item {

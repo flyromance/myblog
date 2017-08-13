@@ -1,44 +1,45 @@
 extends ./common/layout.jade
 
 block head_style
-    link(type="text/css" rel="stylesheet" href="/css/login.css")
+    link(type="text/css" rel="stylesheet" href="/css/page/login.css")
 
 block body
     div(class='login')
         h3(class='text-center text-primary') 注册
-        form(class='form-horizontal' method="POST" action="/signup")
+        form(class='form-horizontal' method="POST" action="/signup" enctype="multipart/form-data")
             div(class='form-group')
                 label(for="username" class="col-sm-2 control-label") 用户名
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='input' class="form-control" id="username" placeholder="用户名")
+                    input(type='input' name="username" class="form-control" id="username" placeholder="用户名")
             div(class='form-group')
                 label(for="password" class="col-sm-2 control-label") 密码
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='input' class="form-control" id="password" placeholder="密码")
+                    input(type='input' name="password" class="form-control" id="password" placeholder="密码")
             div(class='form-group')
-                label(for="r-password" class="col-sm-2 control-label") 重复密码
+                label(for="repassword" class="col-sm-2 control-label") 重复密码
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='input' class="form-control" id="r-password" placeholder="密码")
+                    input(type='input' name="repassword" class="form-control" id="repassword" placeholder="密码")
             div(class='form-group')
                 label(for="gender" class="col-sm-2 control-label") 性别
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    select(class="form-control" id='gender')
-                        option(value="male") 男
-                        option(value="female") 女
+                    select(class="form-control" id='gender' name="gender")
+                        option(value="m") 男
+                        option(value="f") 女
+                        option(value="x") 保密
             div(class='form-group')
                 label(for="avatar" class="col-sm-2 control-label") 头像
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='file' id="avatar")
+                    input(type='file' id="avatar" name="avatar")
             div(class='form-group')
                 label(for="introduction" class="col-sm-2 control-label") 个人简介
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    textarea(class="form-control" rows="4" id='introduction')  
+                    textarea(class="form-control" name="bio" rows="4" id='introduction')  
             div(class='row')
                 div(class="col-sm-2")
                 div(class='col-sm-10')  

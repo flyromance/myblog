@@ -1,7 +1,7 @@
 .login {
     width: 600px;
     margin: 50px auto 100px;
-    border: 2px solid #999;
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
 }

@@ -1,13 +1,18 @@
 var express = require('express');
 var path = require('path');
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
-var flash = require('connect-flash');
+var session = require('express-session'); // 依赖 cookie
+var MongoStore = require('connect-mongo')(session); // 依赖mongodb
+var flash = require('connect-flash'); // 无依赖
+var winston = require('winston');
+var expressWinston = require('express-winston');
+var expressFormidable = require('express-formidable');
 var routes = require('./routes');
 var pkg = require('./package');
-var config = require('config-lite')(__dirname);
+var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件
 
 var app = express();
+
+app.setMaxListeners(100);
 
 // 配置视图文件
 app.set('views', path.join(__dirname, 'views'));
@@ -35,9 +40,63 @@ app.use(session({
 // flash 中间件，用来显示通知
 app.use(flash());
 
+// 处理表单及文件上传的中间件
+app.use(expressFormidable({
+  uploadDir: path.join(__dirname, 'public/img'), // 上传文件目录
+  keepExtensions: true // 保留后缀
+}));
+
+// 设置模板全局常量
+app.locals.blog = {
+  title: pkg.name,
+  description: pkg.description
+};
+
+// 添加模板必需的三个变量
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user;
+  res.locals.success = req.flash('success').toString();
+  res.locals.error = req.flash('error').toString();
+  next();
+});
+
+// 正常请求的日志
+// app.use(expressWinston.logger({
+//   transports: [
+//     new winston.transports.Console({
+//       json: true,
+//       colorize: true
+//     }),
+//     new winston.transports.File({
+//       filename: 'logs/success.log'
+//     })
+//   ]
+// }));
+
 // 配置路由
 routes(app);
 
+// 错误请求的日志
+// app.use(expressWinston.errorLogger({
+//   transports: [
+//     new winston.transports.Console({
+//       json: true,
+//       colorize: true
+//     }),
+//     new winston.transports.File({
+//       filename: 'logs/error.log'
+//     })
+//   ]
+// }));
+
+// error page
+app.use(function (err, req, res, next) {
+  res.render('error', {
+    error: err
+  });
+});
+
+// 启动
 app.listen(config.port, function () {
-    console.log(`${pkg.name} run at localhost:${config.port}`);
+    console.log(`${pkg.name} listening on port ${config.port}`);
 })
