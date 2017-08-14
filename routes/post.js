@@ -5,7 +5,8 @@ var checkLogin = require('../middlewares/check').checkLogin;
 // 首页
 router.get('/', function (req, res) {
     res.render('front/index', {
-        title: '博客'
+        title: '博客',
+        isSigned: req.session.user ? true : false,
     });
 });
 

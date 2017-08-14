@@ -1,21 +1,7 @@
 extends common/layout.jade
 
 block header
-    div(class='header')
-        h2(class='text-center') myblog
-        p(class='text-center') this is my design
-        div(class='nav-setting glyphicon glyphicon-menu-hamburger')
-            ul(class='nav-list')
-                li
-                    a(href='/signin') 登录
-                li
-                    a(href='/signup') 注册
-                li
-                    a(href='/user') 个人主页
-                li
-                    a(href='/post/create') 发表文章
-                li
-                    a(href='/signout') 登出
+    include common/header.jade
 
 block body
     div(class='body')
@@ -25,7 +11,7 @@ block body
                     div(class="post-list")
                         div(class='post-item')
                             div(class='post-main')
-                                h3(class='post-title') hello world
+                                h3(class='post-title') hello world11
                                 p(class='post-content') 这是正文, 这是正文
                                 div(class='post-extra')
                                     div(class='post-time') 2012-10-23

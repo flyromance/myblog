@@ -3,13 +3,15 @@ div(class='header')
     p(class='text-center') this is my design
     div(class='nav-setting glyphicon glyphicon-menu-hamburger')
         ul(class='nav-list')
-            li
-                a(href='/signin') 登录
-            li
-                a(href='/signup') 注册
-            li
-                a(href='/') 个人主页
-            li
-                a(href='/') 发表文章
-            li
-                a(href='/signout') 登出
+            if !isSigned
+                li
+                    a(href='/signin') 登录
+                li
+                    a(href='/signup') 注册
+            else
+                li
+                    a(href='/') 个人主页
+                li
+                    a(href='/') 发表文章
+                li
+                    a(href='#') 登出

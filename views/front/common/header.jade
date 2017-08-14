@@ -1,1 +1,32 @@
-include ../../common/header.jade
+div(class='header')
+    div(class='nav')    
+        div(class='nav-bd clearfix')
+            div(class='nav-bd-l')
+                a(href='/' class='logo')
+                    img(src='/img/avatar.jpg')
+            div(class='nav-bd-l ml-20')
+                div(class='search-box')
+                    form(class='search-form')
+                        input(type='text')
+                        button(type='submit' class='btn-search')
+                            span(class='sr-only') 搜索
+                            span(class='glyphicon glyphicon-search')
+
+            div(class='nav-bd-r')
+                a(class='btn btn-default') 登录
+                a(class='btn btn-success ml5') 注册
+    div(class='nav-setting')
+        span(class="glyphicon glyphicon-menu-hamburger")
+        ul(class='nav-list')
+            if !isSigned
+                li
+                    a(href='/signin') 登录
+                li
+                    a(href='/signup') 注册
+            else
+                li
+                    a(href='/user/id') 我的主页
+                li
+                    a(href='/post/create') 发表文章
+                li
+                    a(href='/signout') 登出

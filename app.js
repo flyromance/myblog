@@ -12,7 +12,7 @@ var config = require('config-lite')(__dirname); // 读取项目目录中config�
 
 var app = express();
 
-app.setMaxListeners(100);
+app.setMaxListeners(10000);
 
 // 配置视图文件
 app.set('views', path.join(__dirname, 'views'));
