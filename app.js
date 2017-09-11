@@ -2,10 +2,10 @@ var express = require('express');
 var path = require('path');
 var session = require('express-session'); // 依赖 cookie
 var MongoStore = require('connect-mongo')(session); // 依赖mongodb
-var flash = require('connect-flash'); // 无依赖
-var winston = require('winston');
-var expressWinston = require('express-winston');
-var expressFormidable = require('express-formidable');
+var flash = require('connect-flash'); // 闪存中间件，无依赖
+var winston = require('winston'); // 日志
+var expressWinston = require('express-winston'); // 日志中间件，依赖winston
+var expressFormidable = require('express-formidable'); // 处理表单中间件
 var routes = require('./routes');
 var pkg = require('./package');
 var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件
@@ -24,7 +24,7 @@ app.set('view engine', 'jade');
 app.use(express.static('public'));
 
 // session中间件
-app.use(session({
+app.use(session({       
   name: config.session.key, // 设置 cookie 中保存 session id 的字段名称
   secret: config.session.secret, // 通过设置 secret 来计算 hash 值并放在 cookie 中，使产生的 signedCookie 防篡改
   resave: true, // 强制更新 session

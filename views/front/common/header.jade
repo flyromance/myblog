@@ -1,32 +1,39 @@
 div(class='header')
-    div(class='nav')    
+    div(class='nav nav-fixed')    
         div(class='nav-bd clearfix')
             div(class='nav-bd-l')
                 a(href='/' class='logo')
                     img(src='/img/avatar.jpg')
-            div(class='nav-bd-l ml-20')
+            div(class='nav-bd-l ml-20 clearfix')
                 div(class='search-box')
                     form(class='search-form')
-                        input(type='text')
-                        button(type='submit' class='btn-search')
-                            span(class='sr-only') 搜索
-                            span(class='glyphicon glyphicon-search')
+                        div(class='search-input')
+                            input(type='text')
+                            button(type='submit' class='btn-search')
+                                span(class='sr-only') 搜索
+                                span(class='glyphicon glyphicon-search')
 
             div(class='nav-bd-r')
-                a(class='btn btn-default') 登录
-                a(class='btn btn-success ml5') 注册
-    div(class='nav-setting')
-        span(class="glyphicon glyphicon-menu-hamburger")
-        ul(class='nav-list')
-            if !isSigned
-                li
-                    a(href='/signin') 登录
-                li
-                    a(href='/signup') 注册
-            else
-                li
-                    a(href='/user/id') 我的主页
-                li
-                    a(href='/post/create') 发表文章
-                li
+                div(class="login-area")
+                    if !isSigned
+                        a(class='btn btn-default' href="/signin") 登录
+                        a(class='btn btn-success ml5' href='/signup') 注册
+                    else
+                        a(class='btn btn-default' href="/user/id") 我的主页
+                        a(class='btn btn-success ml5' href='/post/create') 发表文章
+                        a(class='btn btn-success ml5' href='/signout') 退出
+    //- div(class='nav-setting')
+    //-     span(class="glyphicon glyphicon-menu-hamburger")
+    //-     ul(class='nav-list')
+    //-         if !isSigned
+    //-             li
+    //-                 a(href='/signin') 登录
+    //-             li
+    //-                 a(href='/signup') 注册
+    //-         else
+    //-             li
+    //-                 a(href='/user/id') 我的主页
+    //-             li
+    //-                 a(href='/post/create') 发表文章
+    //-             li
                     a(href='/signout') 登出
