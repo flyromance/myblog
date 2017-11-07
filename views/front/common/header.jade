@@ -15,11 +15,11 @@ div(class='header')
 
             div(class='nav-bd-r')
                 div(class="login-area")
-                    if !isSigned
+                    if !user
                         a(class='btn btn-default' href="/signin") 登录
                         a(class='btn btn-success ml5' href='/signup') 注册
                     else
-                        a(class='btn btn-default' href="/user/id") 我的主页
+                        a(class='btn btn-default' href="/user/#{user.name}") 我的主页
                         a(class='btn btn-success ml5' href='/post/create') 发表文章
                         a(class='btn btn-success ml5' href='/signout') 退出
     //- div(class='nav-setting')

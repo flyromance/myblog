@@ -11,13 +11,13 @@ block body
                 label(for="username" class="col-sm-2 control-label") 用户名
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='input' class="form-control" id='username' placeholder="用户名")
+                    input(type='text' name="username" class="form-control" id='username' placeholder="用户名")
             div(class='form-group')
                 label(for="password" class="col-sm-2 control-label") 密码
                     span(class='text-red') *
                 div(class="col-sm-10")
-                    input(type='input' class="form-control" id='password' placeholder="密码")
+                    input(type='password' name="password" class="form-control" id='password' placeholder="密码")
             div(class='row')
                 div(class="col-sm-2")
                 div(class='col-sm-10')
-                    button(class='btn btn-primary j-btn-signin' type="submit") 登录
+                    button(class='btn btn-primary j-btn-signin') 登录

@@ -1,0 +1,34 @@
+extends common/layout.jade
+
+block header
+    include common/header.jade
+
+block body
+    div(class='body')
+        div(class='layout clearfix')
+            div(class='col-main')
+                div(class='col-main-wraper')
+                    div(class="user-info")
+                        h2 #{user.name}
+                    div(class="tabs")
+                        ul
+                            li 文章
+                            li 动态
+                            li 最新评论
+                    div(class="post-list")
+                    - var lists = [1, 2]
+                    - for (var key in lists) 
+                        include common/post-box.jade
+                            - var data=lists[key]
+            div(class='col-sub')
+                div(class='sub-module module-recommend')
+                    div(class='module-title')
+                        span 推荐作者
+                    div(class='module-body')
+                        div(class='list')
+                            div(class='list-item')
+                                div(class='item-left')
+                                div(class='item-main')
+                                    div(class='item-title') 范龙
+                                    div(class='item-sub') 这是范龙，超级无敌
+                                div(class='item-reload') 换一换
