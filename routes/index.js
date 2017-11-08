@@ -1,6 +1,12 @@
 module.exports = function (app) {
     app.get('/', function (req, res) {
-        res.redirect('/post');
+        const user = req.session.user;
+
+        res.render('front/index', {
+            title: '博客',
+            isSigned: user ? true : false,
+            user: user
+        });
     });
 
     // 登录登出注册

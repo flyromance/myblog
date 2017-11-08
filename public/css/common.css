@@ -27,6 +27,7 @@
 }
 
 .layout > .col-main > .col-main-wraper {
+    overflow: hidden;
     margin-right: 320px;
 }
 
@@ -34,6 +35,7 @@
     margin-left: -300px;
     width: 300px;
 }
+
 
 /* body */
 .body {

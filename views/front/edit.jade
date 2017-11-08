@@ -1,8 +1,28 @@
 extends common/layout.jade
 
 block header
-	include common/header.jade
+    include common/header.jade
 
 block body
-	include common/post-item.jade
-	include common/post-comment.jade
+    div(class='body')
+        div(class='layout')
+            div(class='col-main')
+                div(class='col-main-wraper')
+                    div
+                        h2 #{user.name}
+                    div(class='edit-box' style='')
+                        form(action="" enctype="")
+                            input(type='hidden' name="postid" value="#{postId}")
+                            div(class='')
+                                label(for="title") 标题
+                                input(name="title" id="title" class='form-control')
+                            div(class='')
+                                label(for='content') 内容
+                                textarea(name="content" cols="30" rows="10" class='form-control')
+                            div()
+                                input(type='submit' value='提交')
+
+            div(class='col-sub')
+                div
+                    ul
+                        
