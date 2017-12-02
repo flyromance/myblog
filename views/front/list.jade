@@ -1,0 +1,24 @@
+extends common/layout.jade
+
+block header
+    include common/header.jade
+
+block body
+    div(class='body')
+        div(class='layout')
+            div(class='col-main')
+                div(class='col-main-wraper')
+                    div
+                        h2 #{user.name}
+                    div(class='' style='')
+                        ul 
+                          each item in lists
+                            li
+                              a(href="/p/#{item._id}") #{item.title}
+                              a(class='btn btn-success' href="/post/edit?pid=#{item._id}") 编辑 
+                              a(class='btn btn-danger j_btn-delete') 删除
+
+            div(class='col-sub')
+                div
+                    ul
+                        

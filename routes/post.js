@@ -3,74 +3,80 @@ var router = express.Router();
 var checkLogin = require('../middlewares/check').checkLogin;
 var postModel = require('../models/post');
 
-// 文章详情页
-router.get('/:id', function (req, res) {
+router.get('/list', checkLogin, function (req, res) {
+    const user = req.session.user;
 
-    // 通过id取文章资料
-    postModel
-        .getPostById(req.params.id)
-        .then(function (article) {
-            res.render('front/post', {
-                user: req.session.user,
-                article: article
-            });
+    postModel.getPosts(user._id)
+        .then(function (articles) {
+            console.log(articles);
+            res.render('front/list', {
+                lists: articles
+            })
         })
-        .catch(function (e) {
-
-        });
 });
 
-// 新建或编辑页
-router.get('/edit/:id', checkLogin, function (req, res) {
+
+// 新建/编辑页
+// /post/edit?p=xxx
+router.get('/edit', checkLogin, function (req, res) {
     const user = req.session.user;
-    const id = req.params.id;
+    const postId = req.query.pid;
 
     // 通过用户查找所有文章
     // var postsPromise = postModel.getPosts(user.name)
+    const postData = null;
 
-    if (id) {
-        postModel
-            .getPostById(id)
+    if (postId) {
+        postModel.getPostById(postId)
             .then(function (article) {
+                console.log(article)
                 res.render('front/edit', {
                     user: user,
                     list: [{ title: '文章1', id: 213 }, { title: '文章2' }],
-                    postId: id
+                    article: {
+                        author: article.author.name,
+                        title: article.title,
+                        content: article.content,
+                        pid: article._id,
+                    },
                 });
             })
-            .catch(function (e) {
-
-            });
     } else {
         res.render('front/edit', {
             user: user,
             list: [{ title: '文章1', id: 213 }, { title: '文章2' }],
+            article: {}
         });
     }
 });
 
-// 提交新建文章
-router.post('/', checkLogin, function (req, res) {
+// 新建/编辑
+router.post('/edit', checkLogin, function (req, res) {
+    var user = req.session.user;
+    var postId = req.fields.pid;
 
-    postModel
-        .create({
-            author: req.session.user._id,
+    if (postId) {
+        postModel.updatePostById(postId, user._id, {
             title: req.fields.title,
             content: req.fields.content,
-            pv: 0
         })
-        .then(function (id) {
-            console.log(id);
-            id = id || 0;
-            res.redirect(`post/${id}`);
-        })
-        .catch(function (e) {
-            console.log(e);
-
-        })
-
-})
-
+    } else {
+        postModel
+            .create({
+                author: req.session.user._id,
+                title: req.fields.title,
+                content: req.fields.content,
+                pv: 0
+            })
+            .then(function (pid) {
+                console.log(pid);
+                res.redirect(`/post/${pid}`);
+            })
+            .catch(function (e) {
+                console.log(e);
+            })
+    }
+});
 
 
 

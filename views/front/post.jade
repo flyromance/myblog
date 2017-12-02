@@ -1,8 +1,9 @@
 extends common/layout.jade
 
 block header
-	include common/header.jade
+    include common/header.jade
 
 block body
-	include common/post-item.jade
-	include common/post-comment.jade
+    div(class='body')
+        include common/article.jade
+        include common/comment.jade

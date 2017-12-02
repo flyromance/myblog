@@ -9,6 +9,7 @@ var expressFormidable = require('express-formidable'); // 处理表单中间件
 var routes = require('./routes');
 var pkg = require('./package');
 var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件
+var url = require('url')
 
 var app = express();
 
@@ -39,6 +40,12 @@ app.use(session({
 
 // flash 中间件，用来显示通知
 app.use(flash());
+
+app.use(function (req, res, next) {
+  var parsed = url.parse(req.url, true).query;
+  req.query = parsed;
+  next();
+})
 
 // 处理表单及文件上传的中间件
 app.use(expressFormidable({

@@ -1,0 +1,12 @@
+div(class='post-box')
+    div(class='post-main')
+        h3(class='post-title') #{article.title}
+        p(class='post-content') !{article.content}
+        div(class='post-extra')
+            div(class='post-time') #{article.created_at}
+            div(class='post-other')    
+                span(class='post-read-num') 浏览(#{article.pv})
+                span(class='post-comment-num') 留言(#{article.commentsCount})
+    div(class='post-sub')
+        div(class='post-avatar')
+            img(src='/img/avatar.jpg' width='100px' height='100px')

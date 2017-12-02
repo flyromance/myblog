@@ -14,6 +14,8 @@ module.exports = function (app) {
     app.use('/signin', require('./signin'));
     app.use('/signout', require('./signout'));
 
+    app.use('/p', require('./p'))
+
     // 文章
     app.use('/post', require('./post'));
 
