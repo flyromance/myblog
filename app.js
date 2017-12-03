@@ -18,9 +18,9 @@ app.setMaxListeners(10000);
 
 app.use(express.static('public')); // 配置静态资源目录
 
-app.set('views', path.join(__dirname, 'views')); // 配置视图文件
-app.set('view engine', 'jade'); // 配置模板引擎
-app.engine('jade', jade.__express);
+app.set('views', path.join(__dirname, 'views')); // 指定视图文件目录
+app.set('view engine', 'jade'); // 配置默认的模板引擎
+app.engine('jade', jade.__express); // 设置模板引擎渲染函数
 
 
 // session中间件

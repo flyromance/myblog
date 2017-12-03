@@ -2,7 +2,6 @@ var config = require('./config')
 var webpack = require('webpack')
 var webpackMerge = require('webpack-merge')
 var webpackBaseConfig = require('./webpack.base')
-var autoprefixer = require('autoprefixer')
 var util = require('./util')
 
 module.exports = webpackMerge(webpackBaseConfig, {
@@ -16,15 +15,10 @@ module.exports = webpackMerge(webpackBaseConfig, {
                     {
                         loader: 'css-loader',
                         options: {
-                            importModule: 1,
+                            sourceMap: true,
                         }
                     },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [autoprefixer]
-                        }
-                    },
+                    'postcss-loader',
                 ]
             },
             {
@@ -35,22 +29,17 @@ module.exports = webpackMerge(webpackBaseConfig, {
                     {
                         loader: 'css-loader',
                         options: {
-                            
+                            sourceMap: true,
                         }
                     },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [autoprefixer]
-                        }
-                    },
+                    'postcss-loader',
                     'sass-loader',
                 ]
             },
         ]
     },
 
-    plugins: util.getHtmlPlugin(),
+    plugins: [].concat(util.getHtmlPlugin()),
 
     devtool: '#source-map',
 })

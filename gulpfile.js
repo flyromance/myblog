@@ -8,13 +8,14 @@ var filepath = {
         src: path.join(config.viewSrcDir, 'module/**/*.jade'),
         dist: './views/module',
     },
-    js: {
-
-    },
-    css: {
-        
+    asset: {
+        dist: path.join(config.distDir)
     }
 }
+
+gulp.task('del:asset', function () {
+    del.sync(filepath.asset.dist)
+})
 
 gulp.task('del:view', function () {
     // 文件夹都删掉 module  module/  module/** 
@@ -30,3 +31,11 @@ gulp.task('build:view', function () {
 gulp.task('watch:view', ['del:view', 'build:view'], function () {
     gulp.watch(filepath.view.src, ['build:view'])
 })
+
+
+gulp.task('del', ['del:view', 'del:asset'])
+
+
+gulp.task('dev', ['del', 'watch:view'])
+
+gulp.task('build', ['del', 'build:view'])

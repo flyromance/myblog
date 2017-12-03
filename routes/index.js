@@ -28,4 +28,11 @@ module.exports = function (app) {
 
     // 系统后台管理
     // app.use('/admin', require('./admin'));
+
+    app.get('*', function(req, res) {
+        res.render('404', {  
+            status: 404,  
+            title: 'NodeBlog',  
+        });  
+    })  
 }
