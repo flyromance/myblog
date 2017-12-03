@@ -11,32 +11,46 @@ module.exports = webpackMerge(webpackBaseConfig, {
     module: {
         rules: [
             {
-                test: /\/.css/,
+                test: /\/.css$/,
                 use: extractCssPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        ['css-loader', {
-                            importModule: 1,
-                        }],
-                        ['postcss-loader', {
-                            plugins: [autoprefixer]
-                        }]
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importModule: 1,
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [autoprefixer]
+                            }
+                        },
                     ]
                 })
             },
             {
-                test: /\.scss/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 use: extractScssPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        ['css-loader', {
-                            importModule: 1,
-                        }],
-                        ['postcss-loader', {
-                            plugins: [autoprefixer]
-                        }],
-                        ['sass-loader']
+                        'style-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importModule: 1,
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [autoprefixer]
+                            }
+                        },
+                        'sass-loader',
                     ]
                 })
             },

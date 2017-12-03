@@ -1,6 +1,14 @@
-node_modules
+node_modules/
 .idea
 .DS_Store
 ._.DS_Store
 *.bak
 logs
+
+npm-debug*
+
+# 
+public/static/**
+
+# views
+views/

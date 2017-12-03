@@ -5,7 +5,8 @@ module.exports = function (app) {
         res.render('front/index', {
             title: '博客',
             isSigned: user ? true : false,
-            user: user
+            user: user,
+            list: [],
         });
     });
 
