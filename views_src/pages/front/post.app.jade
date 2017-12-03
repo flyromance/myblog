@@ -1,0 +1,19 @@
+extends common/layout.jade
+
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
+
+block header
+    include common/header.jade
+
+block body
+    div(class='body')
+        include common/article.jade
+        include common/comment.jade
+
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>

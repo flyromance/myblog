@@ -10,19 +10,18 @@ var routes = require('./routes');
 var pkg = require('./package');
 var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件
 var url = require('url')
+var jade = require('jade')
 
 var app = express();
 
 app.setMaxListeners(10000);
 
-// 配置视图文件
-app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('public')); // 配置静态资源目录
 
-// 配置模板引擎
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views')); // 配置视图文件
+app.set('view engine', 'jade'); // 配置模板引擎
+app.engine('jade', jade.__express);
 
-// 配置静态资源目录
-app.use(express.static('public'));
 
 // session中间件
 app.use(session({

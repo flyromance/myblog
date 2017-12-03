@@ -1,7 +1,9 @@
-extends common/layout.jade
+extends ../../module/layout.jade
 
-block header
-    include common/header.jade
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
 
 block body
     div(class='body')
@@ -21,4 +23,8 @@ block body
             div(class='col-sub')
                 div
                     ul
-                        
+
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>

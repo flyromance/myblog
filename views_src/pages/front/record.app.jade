@@ -1,5 +1,10 @@
 extends common/layout.jade
 
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
+
 block header
     include common/header.jade
 
@@ -32,3 +37,9 @@ block body
                                     div(class='item-title') 范龙
                                     div(class='item-sub') 这是范龙，超级无敌
                                 div(class='item-reload') 换一换
+
+
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>

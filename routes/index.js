@@ -2,7 +2,7 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         const user = req.session.user;
 
-        res.render('front/index', {
+        res.render('xx.html', {
             title: '博客',
             isSigned: user ? true : false,
             user: user,

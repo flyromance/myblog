@@ -1,12 +1,12 @@
-extends common/layout.jade
+extends ../../module/layout.jade
 
 block head_style
     <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
     <% } %>
 
 block header
-    include common/header.jade
+    include ../../header.jade
 
 block body
     div(class='body')
@@ -15,7 +15,7 @@ block body
                 div(class='col-main-wraper')
                     div(class="post-list")
                         each item in list 
-                            include ./common/article.jade
+                            include ../../module/article.jade
                              - var data = item
             div(class='col-sub')
                 div(class='sub-module module-recommend')
@@ -31,10 +31,8 @@ block body
                                 div(class='item-reload') 换一换
                                 
 block body_script
-    //- script(src='/static/pages/common.js')
-    //- script(src='/static/pages/front/index.js')
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-    <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
     <% } %>
 
         
