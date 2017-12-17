@@ -6,7 +6,7 @@ var del = require('del');
 var filepath = {
     view: {
         src: path.join(config.viewSrcDir, 'module/**/*.jade'),
-        dist: './views/module',
+        dist: path.join(config.viewDir, 'module'),
     },
     asset: {
         dist: config.distDir,

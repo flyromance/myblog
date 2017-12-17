@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server:dev": "cross-env NODE_ENV=development node app.js",
     "server:prod": "cross-env NODE_ENV=production node app.js",
-    "dev": "gulp dev && webpack --config build/webpack.dev.js --progress --watch",
+    "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
+    "gulp:dev": "gulp dev",
     "build": "gulp build && webpack --config build/webpack.prod.js --progress"
   },
   "author": "flyromance",
