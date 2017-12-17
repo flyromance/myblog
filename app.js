@@ -8,7 +8,7 @@ var expressWinston = require('express-winston'); // 日志中间件，依赖wins
 var expressFormidable = require('express-formidable'); // 处理表单中间件
 var routes = require('./routes');
 var pkg = require('./package');
-var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件
+var config = require('config-lite')(__dirname); // 读取项目目录中config文件夹下的配置文件, 文件名与NODE_ENV一致
 var url = require('url')
 var jade = require('jade')
 
