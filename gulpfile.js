@@ -9,7 +9,7 @@ var filepath = {
         dist: './views/module',
     },
     asset: {
-        dist: path.join(config.distDir)
+        dist: config.distDir,
     }
 }
 
