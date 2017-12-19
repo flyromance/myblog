@@ -5,7 +5,7 @@ var checkLogin = require('../middlewares/check').checkLogin;
 // 用户
 router.get('/', checkLogin, function (req, res) {
     // 404
-    res.render('admin/user', {
+    res.render('pages/user', {
         
     });
 });

@@ -16,7 +16,7 @@ router.get('/:id', function (req, res) {
     var user = req.session.user;
     console.log(user);
     if (user) {
-        res.render('front/record', {
+        res.render('pages/record', {
             user: user,
         });
     } else {

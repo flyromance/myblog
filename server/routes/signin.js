@@ -5,7 +5,7 @@ var checkNotLogin = require('../middlewares/check').checkNotLogin;
 var userModel = require('../models/user');
 
 router.get('/', checkNotLogin, function (req, res) {
-    res.render('signin');
+    res.render('pages/signin');
 });
 
 router.post('/', checkNotLogin, function (req, res, next) {

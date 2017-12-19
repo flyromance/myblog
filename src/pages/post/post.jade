@@ -1,0 +1,19 @@
+extends view_modules/layout.jade
+
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
+
+block header
+    include view_modules/header.jade
+
+block body
+    div(class='body')
+        include view_modules/article.jade
+        include view_modules/comment.jade
+
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>

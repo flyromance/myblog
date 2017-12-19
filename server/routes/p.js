@@ -5,7 +5,7 @@ router.get('/:id', function (req, res) {
   console.log(req.params.id)
   postModel.getPostById(req.params.id)
     .then(function (article) {
-      res.render('front/post', {
+      res.render('pages/post', {
         article: article
       })
     })

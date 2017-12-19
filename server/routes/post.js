@@ -9,7 +9,7 @@ router.get('/list', checkLogin, function (req, res) {
     postModel.getPosts(user._id)
         .then(function (articles) {
             console.log(articles);
-            res.render('front/list', {
+            res.render('pages/list', {
                 lists: articles
             })
         })
@@ -30,7 +30,7 @@ router.get('/edit', checkLogin, function (req, res) {
         postModel.getPostById(postId)
             .then(function (article) {
                 console.log(article)
-                res.render('front/edit', {
+                res.render('pages/edit', {
                     user: user,
                     list: [{ title: '文章1', id: 213 }, { title: '文章2' }],
                     article: {
@@ -42,7 +42,7 @@ router.get('/edit', checkLogin, function (req, res) {
                 });
             })
     } else {
-        res.render('front/edit', {
+        res.render('pages/edit', {
             user: user,
             list: [{ title: '文章1', id: 213 }, { title: '文章2' }],
             article: {}

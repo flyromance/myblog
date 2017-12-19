@@ -5,8 +5,8 @@ var del = require('del');
 
 var filepath = {
     view: {
-        src: path.join(config.viewSrcDir, 'module/**/*.jade'),
-        dist: path.join(config.viewDir, 'module'),
+        src: path.join(config.srcDir, 'view_modules/**/*.jade'),
+        dist: path.join(config.viewDir, 'view_modules'),
     },
     asset: {
         dist: config.distDir,
@@ -25,7 +25,7 @@ gulp.task('del:view', function () {
 
 gulp.task('build:view', function () {
     gulp.src(filepath.view.src)
-        .pipe(gulp.dest('./views/module'))
+        .pipe(gulp.dest('./views/view_modules'))
 })
 
 gulp.task('watch:view', ['del:view', 'build:view'], function () {
@@ -34,7 +34,6 @@ gulp.task('watch:view', ['del:view', 'build:view'], function () {
 
 
 gulp.task('del', ['del:view', 'del:asset'])
-
 
 gulp.task('dev', ['del', 'watch:view'])
 
