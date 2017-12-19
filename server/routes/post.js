@@ -8,7 +8,6 @@ router.get('/list', checkLogin, function (req, res) {
 
     postModel.getPosts(user._id)
         .then(function (articles) {
-            console.log(articles);
             res.render('pages/list', {
                 lists: articles
             })

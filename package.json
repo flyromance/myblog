@@ -6,7 +6,7 @@
   "scripts": {
     "gulp:dev": "gulp dev",
     "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
-    "server:dev": "cross-env NODE_ENV=development node app.js",
+    "server:dev": "cross-env NODE_ENV=development supervisor app.js",
     "build": "gulp build && webpack --config build/webpack.prod.js --progress",
     "server:prod": "cross-env NODE_ENV=production node app.js"
   },

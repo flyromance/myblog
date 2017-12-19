@@ -1,4 +1,4 @@
-extends view_modules/layout.jade
+extends ../view_modules/layout.jade
 
 block head_style
     <% for (var css in htmlWebpackPlugin.files.css) { %>
@@ -6,7 +6,7 @@ block head_style
     <% } %>
 
 block header
-    include view_modules/header.jade
+    include ../view_modules/header.jade
 
 block body
     div(class='body')
@@ -15,7 +15,7 @@ block body
                 div(class='col-main-wraper')
                     div(class="post-list")
                         each item in list 
-                            include view_modules/article.jade
+                            include ../view_modules/article.jade
                              - var data = item
             div(class='col-sub')
                 div(class='sub-module module-recommend')

@@ -5,7 +5,9 @@ var checkNotLogin = require('../middlewares/check').checkNotLogin;
 var userModel = require('../models/user');
 
 router.get('/', checkNotLogin, function (req, res) {
-    res.render('pages/signin');
+    res.render('pages/signin', {
+        title: '登录'
+    });
 });
 
 router.post('/', checkNotLogin, function (req, res, next) {

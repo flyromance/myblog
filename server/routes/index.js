@@ -2,7 +2,7 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         const user = req.session.user;
 
-        res.redirect('/posts');
+        res.redirect('/p');
     });
 
     // 登录登出注册
