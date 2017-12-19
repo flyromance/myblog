@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 exports.getJsEntry = function () {
     var entries = glob.sync(path.join(config.srcDir, 'pages/**/*.app.js'))
     var entry = {};
-    var reg = /src\/(pages\/[^.]+)\.app.js/;
+    var reg = /src\/(pages\/[^.]+)\.app\.js/;
     entries.forEach(function (filepath, index) {
         var match = filepath.match(reg);
         if (match) {
@@ -17,9 +17,9 @@ exports.getJsEntry = function () {
 }
 
 exports.getHtmlPlugin = function () {
-    var pages = glob.sync(path.join(config.viewSrcDir, '**/*.app.jade'))
+    var pages = glob.sync(path.join(config.viewSrcDir, 'pages/**/*.app.jade'))
     var plugins = [];
-    var reg = /views_src\/([^.]+)\.app\.jade/;
+    var reg = /views_src\/(pages\/[^.]+)\.app\.jade/;
     pages.forEach(function (pagepath, index) {
         var match = pagepath.match(reg);
         if (match) {

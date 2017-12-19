@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "supervisor node app.js",
-    "dev": "gulp dev && webpack --config build/webpack.dev.js --progress --watch",
+    "server:dev": "cross-env NODE_ENV=development node app.js",
+    "server:prod": "cross-env NODE_ENV=production node app.js",
+    "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
+    "gulp:dev": "gulp dev",
     "build": "gulp build && webpack --config build/webpack.prod.js --progress"
   },
   "author": "flyromance",
@@ -36,6 +38,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "del": "^3.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
