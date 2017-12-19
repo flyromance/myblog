@@ -44,7 +44,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin(),
         new extractTextPlugin({
             filename: '[name].css'
         }),

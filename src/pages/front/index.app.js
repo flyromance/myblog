@@ -1,4 +1,4 @@
-require('@/sass/index.scss')
+// require('@/sass/index.scss')
 
 
 console.log('this is index page')
