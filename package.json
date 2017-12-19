@@ -4,12 +4,11 @@
   "description": "my blog",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server:dev": "cross-env NODE_ENV=development node app.js",
-    "server:prod": "cross-env NODE_ENV=production node app.js",
-    "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
     "gulp:dev": "gulp dev",
-    "build": "gulp build && webpack --config build/webpack.prod.js --progress"
+    "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
+    "server:dev": "cross-env NODE_ENV=development node app.js",
+    "build": "gulp build && webpack --config build/webpack.prod.js --progress",
+    "server:prod": "cross-env NODE_ENV=production node app.js"
   },
   "author": "flyromance",
   "license": "ISC",

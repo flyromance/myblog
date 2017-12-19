@@ -7,8 +7,9 @@ const viewDir = path.join(baseDir, 'views')
 
 module.exports = {
     env: {
-        NODE_ENV: process.env.NODE_ENV === 'production' ? 'production' : 'develop',
+        NODE_ENV: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     },
+    isProd: process.env.NODE_ENV === 'production',
     baseDir: baseDir,
     distDir: distDir,
     srcDir: srcDir,

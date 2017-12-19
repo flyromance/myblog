@@ -1,9 +1,9 @@
 var config = require('./config')
 var webpack = require('webpack')
-var util = require('./util')
+var $util = require('./util')
 
 module.exports = {
-    entry: util.getJsEntry(),
+    entry: $util.getJsEntry(),
 
     output: {
         path: config.distDir,
