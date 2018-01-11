@@ -1,3 +1,3 @@
-require('@/components/sass/lib.scss')
+require('@/assets/lib.scss')
 
 var login = require('@/components/login')

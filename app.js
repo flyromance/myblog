@@ -96,13 +96,13 @@ routes(app);
 // }));
 
 // error page
-app.use(function (err, req, res, next) {
-  res.render('error', {
-    error: err
-  });
+app.use(function (req, res, next) {
+  if (!res.headersSent) {
+    res.status(404).render('pages/404');
+  }
 });
 
 // 启动
 app.listen(config.port, function () {
-    console.log(`${pkg.name} listening on port ${config.port}`);
+  console.log(`${pkg.name} listening on port ${config.port}`);
 })

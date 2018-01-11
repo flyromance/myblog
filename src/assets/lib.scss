@@ -1,7 +1,7 @@
 /* lib */
-.clearfix:after {
+.clearfix::after {
     clear: both;
-    content: ' ';
+    content: '';
     display: table;
 }
 
@@ -29,6 +29,7 @@
 .layout > .col-main > .col-main-wraper {
     overflow: hidden;
     margin-right: 320px;
+    min-height: 1px;
 }
 
 .layout > .col-sub {

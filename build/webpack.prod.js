@@ -9,21 +9,21 @@ module.exports = webpackMerge(webpackBaseConfig, {
 
     module: {
         rules: [
-            {
-                test: /\/.css$/,
-                use: extractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                importLoader: 1
-                            }
-                        },
-                        'postcss-loader',
-                    ]
-                })
-            },
+            // {
+            //     test: /\/.css$/,
+            //     use: extractTextPlugin.extract({
+            //         fallback: 'style-loader',
+            //         use: [
+            //             {
+            //                 loader: 'css-loader',
+            //                 options: {
+            //                     importLoader: 1
+            //                 }
+            //             },
+            //             'postcss-loader',
+            //         ]
+            //     })
+            // },
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,

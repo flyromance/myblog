@@ -1,8 +1,14 @@
-extends view_modules/layout.jade
+extends ../view_modules/layout.jade
+
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
 
 block body
-    h1 this is 404 page...
+    h1(style="margin-top: 100px;") this is 404 page ...
 
 block body_script
-    script('/static/pages/common.js')
-    script('/static/pages/404.js')
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>
