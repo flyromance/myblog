@@ -8,7 +8,9 @@
     "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
     "server:dev": "cross-env NODE_ENV=development pm2 start app.js --name myblog",
     "build": "gulp build && webpack --config build/webpack.prod.js --progress",
-    "server:prod": "cross-env NODE_ENV=production node app.js"
+    "server:prod": "cross-env NODE_ENV=production node app.js",
+    "dev": "cross-env NODE_ENV=development gulp dev",
+    "prod": "gulp prod"
   },
   "author": "flyromance",
   "license": "ISC",
