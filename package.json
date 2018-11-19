@@ -4,10 +4,6 @@
   "description": "my blog",
   "main": "app.js",
   "scripts": {
-    "gulp:dev": "gulp dev",
-    "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
-    "server:dev": "cross-env NODE_ENV=development pm2 start app.js --name myblog",
-    "server:prod": "cross-env NODE_ENV=production node app.js",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "start": "cross-env NODE_ENV=production gulp start",
     "build": "cross-env NODE_ENV=production gulp build",
