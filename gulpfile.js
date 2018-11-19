@@ -29,21 +29,21 @@ gulp.task("del:template", function(cb) {
   taskCreators.del(config.template.dest)(cb);
 });
 
-gulp.task("del:assets", function(cb) {
-  taskCreators.del(config.assets.dest)(cb);
+gulp.task("del:asset", function(cb) {
+  taskCreators.del(config.asset.dest)(cb);
 });
 
 gulp.task("del:webpack", function(cb) {
   taskCreators.del(config.webpack.dest)(cb);
 });
 
-gulp.task("del", ["del:template", "del:assets", "del:webpack"], function(cb) {
+gulp.task("del", ["del:template", "del:asset", "del:webpack"], function(cb) {
   console.log("del all");
   cb();
 });
 
-gulp.task("assets", function() {
-  return taskCreators.copy(config.assets)();
+gulp.task("asset", function() {
+  return taskCreators.copy(config.asset)();
 });
 
 gulp.task("template", function() {
@@ -55,14 +55,14 @@ gulp.task("webpack", function() {
 });
 
 // 串行
-gulp.task("build", gulpSequence("template", "assets", "webpack"));
+gulp.task("build", gulpSequence("template", "asset", "webpack"));
 
 // 并行 两种方式
-// gulp.task("build", gulpSequence(["template", "assets", "webpack"]));
-// gulp.task("build", ["template", "assets", "webpack"]);
+// gulp.task("build", gulpSequence(["template", "asset", "webpack"]));
+// gulp.task("build", ["template", "asset", "webpack"]);
 
 gulp.task("watch", function(cb) {
-  gulp.watch([config.assets.src.patterns], {}, ["assets"]);
+  gulp.watch([config.asset.src.patterns], {}, ["asset"]);
   gulp.watch([config.template.src.patterns], {}, ["template"]);
   taskCreators.webpackWatch(config);
 });

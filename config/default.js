@@ -34,7 +34,7 @@ module.exports = {
     }
   },
 
-  assets: {
+  asset: {
     src: {
       patterns: ["client/assets/**"],
       options: {}
@@ -49,16 +49,16 @@ module.exports = {
   template: {
     src: {
       patterns: [
-        // "client/template/extends/**",
-        // "client/template/includes/**",
-        "client/template/**",
-        "!client/template/pages"
+        // "client/views/extends/**",
+        // "client/views/includes/**",
+        "client/templates/**",
+        "!client/templates/pages"
       ],
       options: {}
     },
     dest: {
-      dir: "dist/template",
-      patterns: ["dist/template/**"]
+      dir: "dist/templates",
+      patterns: ["dist/templates/**"]
     }
   }
 };
