@@ -7,10 +7,11 @@
     "gulp:dev": "gulp dev",
     "webpack:dev": "webpack --config build/webpack.dev.js --progress --watch",
     "server:dev": "cross-env NODE_ENV=development pm2 start app.js --name myblog",
-    "build": "gulp build && webpack --config build/webpack.prod.js --progress",
     "server:prod": "cross-env NODE_ENV=production node app.js",
     "dev": "cross-env NODE_ENV=development gulp dev",
-    "prod": "gulp prod"
+    "start": "cross-env NODE_ENV=production gulp start",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "del": "gulp del"
   },
   "author": "flyromance",
   "license": "ISC",
@@ -46,6 +47,7 @@
     "file-loader": "^1.1.5",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
+    "gulp-sequence": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",

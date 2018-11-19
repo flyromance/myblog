@@ -1,0 +1,35 @@
+extends ../../extends/layout.jade
+
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
+
+block body
+    div(class='body')
+        div(class='layout')
+            div(class='col-main')
+                div(class='col-main-wraper')
+                    div
+                        h2 #{user.name}
+                    div(class='edit-box' style='')
+                        form(action="/post/edit" enctype="" method="post")
+                            input(type='hidden' name="pid" value="#{article.pid || ''}")
+                            div(class='')
+                                label(for="title") 标题
+                                input(name="title" id="title" class='form-control' value="#{article.title || ''}")
+                            div(class='')
+                                label(for='content') 内容
+                                textarea(name="content" cols="30" rows="10" class='form-control') #{article.content}
+                            div()
+                                input(type='submit' value='提交')
+
+            div(class='col-sub')
+                div
+                    ul
+                        
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>
+    

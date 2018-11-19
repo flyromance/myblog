@@ -5,11 +5,7 @@ node_modules/
 ._.DS_Store
 *.bak
 logs
-package-lock.json
 npm-debug*
 
-# static/** 会保留static文件夹
-public/static
-
-# views
-views
+# static/* 会保留static文件夹
+dist/

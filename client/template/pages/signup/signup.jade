@@ -1,0 +1,57 @@
+extends ../../extends/layout.jade
+
+block head_style
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    link(href="<%=htmlWebpackPlugin.files.css[css] %>" type="text/css" rel="stylesheet")
+    <% } %>
+
+block header
+
+block body
+    div(class='login')
+        h3(class='text-center text-primary') 注册
+        form(class='form-horizontal' method="POST" action="/signup" enctype="multipart/form-data")
+            div(class='form-group')
+                label(for="username" class="col-sm-2 control-label") 用户名
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    input(type='text' name="username" class="form-control" id="username" placeholder="用户名")
+            div(class='form-group')
+                label(for="password" class="col-sm-2 control-label") 密码
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    input(type='password' name="password" class="form-control" id="password" placeholder="密码")
+            div(class='form-group')
+                label(for="repassword" class="col-sm-2 control-label") 重复密码
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    input(type='password' name="repassword" class="form-control" id="repassword" placeholder="密码")
+            div(class='form-group')
+                label(for="gender" class="col-sm-2 control-label") 性别
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    select(class="form-control" id='gender' name="gender")
+                        option(value="m") 男
+                        option(value="f") 女
+                        option(value="x") 保密
+            div(class='form-group')
+                label(for="avatar" class="col-sm-2 control-label") 头像
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    input(type='file' id="avatar" name="avatar")
+            div(class='form-group')
+                label(for="introduction" class="col-sm-2 control-label") 个人简介
+                    span(class='text-red') *
+                div(class="col-sm-10")
+                    textarea(class="form-control" name="bio" rows="4" id='introduction')  
+            div(class='row')
+                div(class="col-sm-2")
+                div(class='col-sm-5')  
+                    button(class='btn btn-primary j-btn-signup' type='submit') 注册
+                div(class='col-sm-5')  
+                    a(href='/signin') 已有账号，去登陆
+
+block body_script
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    script(src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>")
+    <% } %>

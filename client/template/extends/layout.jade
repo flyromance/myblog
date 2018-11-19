@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        title #{title}
+        //- link(rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico")
+        block header_lib
+            include ../includes/lib.jade
+        block head_style
+        block head_script
+    body
+        block header
+            include ../includes/header.jade
+        block body
+        block footer
+            include ../includes/footer.jade
+        block body_script

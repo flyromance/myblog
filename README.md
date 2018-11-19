@@ -41,3 +41,7 @@
 - mac
     - mongod --config /usr/local/etc/mongod.conf
 - 购买了云服务器后，不用本地启动mongo了
+
+
+### client
+- clinet 中的assets目录中文件是不需要编码的，可以直接，用于直接
